@@ -1,10 +1,34 @@
 import { MdOutlineFilterAlt } from "react-icons/md";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { RiFileDownloadLine } from "react-icons/ri";
 import { PiNumberSquareOneLight } from "react-icons/pi";
 import { GrPrevious, GrNext } from "react-icons/gr";
+import RowData from "./RowData/RowData";
 
 export default function Home() {
+	const rowData = [
+		{
+			date: "22.07.2021",
+			time: "14:05",
+			reportName: "APP_URL_USAGE_(Exclude_Half_Days)_3_6_2021.csv",
+		},
+		{ date: "23.07.2021", time: "15:20", reportName: "REPORT_2021_Q2.csv" },
+		{
+			date: "24.07.2021",
+			time: "11:45",
+			reportName: "SALES_REPORT_JULY_2021.csv",
+		},
+		{
+			date: "25.07.2021",
+			time: "10:30",
+			reportName: "MONTHLY_FINANCIAL_STATEMENT.csv",
+		},
+		{
+			date: "26.07.2021",
+			time: "09:15",
+			reportName: "EMPLOYEE_TIMESHEETS_JULY_2021.csv",
+		},
+	];
+
 	return (
 		<main>
 			<div className="w-full h-screen flex items-center justify-center text-slate-600 bg-slate-200">
@@ -29,40 +53,14 @@ export default function Home() {
 						<div className=" flex justify-center w-2/12">Download</div>
 					</div>
 					<div className="w-full h-screen">
-						<div className="border-b-2 w-full flex text-sm py-2 px-6">
-							<div className=" w-2/12">
-								22.07.2021
-								<br /> <span>14:05</span>
-							</div>
-							<div className=" w-8/12">
-								APP_URL_USAGE_(Exclude_Half_Days)_3_6_2021.csv
-							</div>
-							<div className=" flex justify-center items-center w-2/12">
-								<RiFileDownloadLine size={24} opacity={0.6} />
-							</div>
-						</div>
-						<div className="border-b-2 w-full flex text-sm py-2 px-6">
-							<div className="w-2/12">
-								22.07.2021 <br /> <span>14:05</span>
-							</div>
-							<div className=" w-8/12">
-								APP_URL_USAGE_(Exclude_Half_Days)_3_6_2021.csv
-							</div>
-							<div className=" flex justify-center items-center w-2/12">
-								<RiFileDownloadLine size={24} opacity={0.6} />
-							</div>
-						</div>
-						<div className=" border-b-2 w-full flex text-sm py-2 px-6">
-							<div className=" w-2/12">
-								22.07.2021 <br /> <span>14:05</span>
-							</div>
-							<div className=" w-8/12">
-								APP_URL_USAGE_(Exclude_Half_Days)_3_6_2021.csv
-							</div>
-							<div className="flex justify-center items-center w-2/12">
-								<RiFileDownloadLine size={24} opacity={0.6} />
-							</div>
-						</div>
+						{rowData.map((data, index) => (
+							<RowData
+								key={index}
+								date={data.date}
+								time={data.time}
+								reportName={data.reportName}
+							/>
+						))}
 					</div>
 
 					<div className=" w-full border-t-2 flex items-center justify-center gap-40 px-6 py-4">
